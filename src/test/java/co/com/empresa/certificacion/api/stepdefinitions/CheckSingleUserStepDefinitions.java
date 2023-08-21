@@ -11,6 +11,7 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import java.util.List;
 
 import static co.com.empresa.certificacion.api.utils.constants.Constants.REQRES_URL_BASE;
+import static co.com.empresa.certificacion.api.utils.constants.StatusCodes.STATUS_CODE_200;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
@@ -28,7 +29,7 @@ public class CheckSingleUserStepDefinitions {
     public void julianReceivesInformationAboutTheUser(List<UserData> userData) {
         theActorInTheSpotlight().should(
                 seeThatResponse("El servicio respondió satisfactoriamente",
-                        response -> response.statusCode(200)
+                        response -> response.statusCode(STATUS_CODE_200)
                 )
         );
         theActorInTheSpotlight().should(seeThat(ResponseSearchedUser.withTheRightUserData(userData.get(0))));
