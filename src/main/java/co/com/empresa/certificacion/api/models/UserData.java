@@ -7,6 +7,16 @@ public class UserData {
     private String first_name;
     private String last_name;
     private String avatar;
+    private String name;
+    private String job;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getJob() {
+        return job;
+    }
 
     public String getUser_id() {
         return user_id;
