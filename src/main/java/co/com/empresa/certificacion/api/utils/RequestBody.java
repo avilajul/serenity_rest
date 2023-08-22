@@ -25,4 +25,16 @@ public class RequestBody {
         return jsonBody;
 
     }
+    public static String updateUserData(UserData userData){
+        String pathJson = Routes.valueOf("PARTIAL_USER_DATA").getRouteFile();
+        String jsonBody;
+        try{
+            jsonBody = new String(Files.readAllBytes(Paths.get(pathJson)));
+            jsonBody = jsonBody.replace("$name", userData.getName());
+        } catch(Exception e){
+            throw new FileHandlingExceptions();
+        }
+
+        return jsonBody;
+    }
 }

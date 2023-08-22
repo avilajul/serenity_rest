@@ -2,6 +2,7 @@ package co.com.empresa.certificacion.api.stepdefinitions;
 
 import co.com.empresa.certificacion.api.models.UserData;
 import co.com.empresa.certificacion.api.questions.ResponseUpdatedUserInformation;
+import co.com.empresa.certificacion.api.tasks.UpdateData;
 import co.com.empresa.certificacion.api.tasks.UpdateInformation;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -11,10 +12,8 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import java.util.List;
 
 import static co.com.empresa.certificacion.api.utils.constants.Constants.REQRES_URL_BASE;
-import static co.com.empresa.certificacion.api.utils.constants.StatusCodes.STATUS_CODE_200;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 
 public class UpdateUserWithPutStepDefinitions {
     @Given("^julian who wants to update the information of a specific user$")
