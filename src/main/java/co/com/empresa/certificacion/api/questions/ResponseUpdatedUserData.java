@@ -8,11 +8,10 @@ import net.serenitybdd.screenplay.Question;
 import static co.com.empresa.certificacion.api.utils.constants.StatusCodes.STATUS_CODE_200;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
-public class ResponseUpdatedUserInformation implements Question<Boolean> {
-    public static ResponseUpdatedUserInformation updateSuccessful(){
-        return new ResponseUpdatedUserInformation();
+public class ResponseUpdatedUserData implements Question<Boolean> {
+    public static ResponseUpdatedUserData isSuccessful(){
+        return new ResponseUpdatedUserData();
     }
-
     @Override
     public Boolean answeredBy(Actor actor) {
         boolean expectedResult = false;
