@@ -9,6 +9,8 @@ public class UserData {
     private String avatar;
     private String name;
     private String job;
+    private String username;
+    private String password;
 
     public String getName() {
         return name;
@@ -33,7 +35,6 @@ public class UserData {
     public String getFirst_name() {
         return first_name;
     }
-
     public String getLast_name() {
         return last_name;
     }
@@ -41,4 +42,13 @@ public class UserData {
     public String getAvatar() {
         return avatar;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
 }
