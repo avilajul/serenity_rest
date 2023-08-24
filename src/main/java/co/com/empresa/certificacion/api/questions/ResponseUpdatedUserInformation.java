@@ -17,15 +17,15 @@ public class ResponseUpdatedUserInformation implements Question<Boolean> {
     @Override
     public Boolean answeredBy(Actor actor) {
         boolean expectedResult = false;
-        String responseBody;
+        ResponseBody responseBody;
 
         if (lastResponse().statusCode() != STATUS_CODE_200){
             throw new ErrorExceptions("ERROR: El servicio respondió con código " + lastResponse().statusCode());
         }else {
-            responseBody = JsonPath.from(lastResponse().getBody().asString()).getString("updatedAt");
+            responseBody = lastResponse().jsonPath().getObject("", ResponseBody.class);
         }
 
-        if (responseBody.isEmpty()){
+        if (responseBody.getUpdatedAt().isEmpty()){
             throw new ErrorExceptions("ERROR: El servicio no actualizó la información del usuario");
         }else {
             expectedResult = true;
