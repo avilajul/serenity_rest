@@ -2,7 +2,6 @@ package co.com.empresa.certificacion.api.questions;
 
 import co.com.empresa.certificacion.api.exceptions.ErrorExceptions;
 import co.com.empresa.certificacion.api.models.ResponseBody;
-import io.restassured.path.json.JsonPath;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
