@@ -3,17 +3,14 @@ package co.com.empresa.certificacion.api.tasks;
 import co.com.empresa.certificacion.api.models.UserData;
 import co.com.empresa.certificacion.api.utils.RequestBody;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.rest.interactions.Get;
 import net.serenitybdd.screenplay.rest.interactions.Post;
 
 import static co.com.empresa.certificacion.api.utils.constants.Constants.*;
-import static co.com.empresa.certificacion.api.utils.constants.Constants.APPLICATION_JSON;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class CreateAnUser implements Task {
-    UserData userData;
+    private final UserData userData;
     public CreateAnUser(UserData userData) {
         this.userData = userData;
     }

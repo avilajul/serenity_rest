@@ -1,5 +1,12 @@
 package co.com.empresa.certificacion.api.models;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.cucumber.datatable.DataTable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class UserData {
     private String user_id;
     private String id;
@@ -11,6 +18,15 @@ public class UserData {
     private String job;
     private String username;
     private String password;
+
+    public static List<UserData> setData(DataTable dataTable){
+        List<UserData> data = new ArrayList<>();
+        List<Map<String, String>> mapInfo = dataTable.asMaps(String.class, String.class);
+        for (Map<String, String> map : mapInfo){
+            data.add(new ObjectMapper().convertValue(map, UserData.class));
+        }
+        return data;
+    }
 
     public String getName() {
         return name;

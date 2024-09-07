@@ -3,12 +3,17 @@ package co.com.empresa.certificacion.api.utils;
 import co.com.empresa.certificacion.api.exceptions.FileHandlingExceptions;
 import co.com.empresa.certificacion.api.models.Routes;
 import co.com.empresa.certificacion.api.models.UserData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class RequestBody {
-    private RequestBody() {
+    private static final Logger LOGGER = LogManager.getLogger();
+    private final UserData userData;
+    private RequestBody(UserData userData) {
+        this.userData = userData;
     }
 
     public static String updateUserInformation(UserData userData) {
@@ -32,6 +37,7 @@ public class RequestBody {
             jsonBody = new String(Files.readAllBytes(Paths.get(pathJson)));
             jsonBody = jsonBody.replace("$name", userData.getName());
         } catch(Exception e){
+            LOGGER.error(e);
             throw new FileHandlingExceptions();
         }
         return jsonBody;
@@ -46,10 +52,10 @@ public class RequestBody {
                     .replace("$email", userData.getEmail())
                     .replace("$password", userData.getPassword());
         } catch(Exception e){
+            LOGGER.error(e);
             throw new FileHandlingExceptions();
         }
         return jsonBody;
     }
-
 
 }

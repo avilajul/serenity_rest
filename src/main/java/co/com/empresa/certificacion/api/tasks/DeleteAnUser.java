@@ -9,7 +9,7 @@ import static co.com.empresa.certificacion.api.utils.constants.Constants.USERS_L
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class DeleteAnUser implements Task {
-    UserData userData;
+    private final UserData userData;
     public DeleteAnUser(UserData userData) {
         this.userData = userData;
     }

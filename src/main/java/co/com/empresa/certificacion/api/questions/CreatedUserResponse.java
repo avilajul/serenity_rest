@@ -2,11 +2,9 @@ package co.com.empresa.certificacion.api.questions;
 
 import co.com.empresa.certificacion.api.exceptions.ErrorExceptions;
 import co.com.empresa.certificacion.api.models.ResponseBody;
-import io.restassured.path.json.JsonPath;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-import static co.com.empresa.certificacion.api.utils.constants.StatusCodes.STATUS_CODE_200;
 import static co.com.empresa.certificacion.api.utils.constants.StatusCodes.STATUS_CODE_201;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
