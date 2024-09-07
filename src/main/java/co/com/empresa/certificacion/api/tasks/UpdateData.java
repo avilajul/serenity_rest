@@ -2,11 +2,9 @@ package co.com.empresa.certificacion.api.tasks;
 
 import co.com.empresa.certificacion.api.models.UserData;
 import co.com.empresa.certificacion.api.utils.RequestBody;
-import com.ibm.as400.access.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Patch;
-import net.serenitybdd.screenplay.rest.interactions.Put;
 
 import static co.com.empresa.certificacion.api.utils.constants.Constants.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;

@@ -15,16 +15,16 @@ public class SearchForUser implements Task {
         this.userData = userData;
     }
 
-    public static SearchForUser byId(UserData userData){
-
+    public static SearchForUser byId(UserData userData) {
         return instrumented(SearchForUser.class, userData);
     }
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         String resource = USERS_LOCATION + userData.getUser_id();
         actor.attemptsTo(
                 Get.resource(resource).with(
-                        request ->request.relaxedHTTPSValidation()
+                        request -> request.relaxedHTTPSValidation()
                                 .header(CONTENT_TYPE, APPLICATION_JSON)
                                 .header(ACCEPT, APPLICATION_JSON)
                 )
