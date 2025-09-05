@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Delete;
 
-import static co.com.empresa.certificacion.api.utils.constants.Constants.USERS_LOCATION;
+import static co.com.empresa.certificacion.api.utils.constants.Constants.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class DeleteAnUser implements Task {
@@ -19,7 +19,12 @@ public class DeleteAnUser implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Delete.from(USERS_LOCATION + userData.getUser_id())
+                Delete.from(USERS_LOCATION + userData.getUser_id()).with(
+                        request -> request.relaxedHTTPSValidation()
+                                .header(CONTENT_TYPE, APPLICATION_JSON)
+                                .header(ACCEPT, APPLICATION_JSON)
+                                .header(X_API_KEY,REQRES_FREE_V1)
+                )
         );
     }
 }
