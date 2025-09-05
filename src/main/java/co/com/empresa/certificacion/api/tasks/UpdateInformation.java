@@ -26,6 +26,7 @@ public class UpdateInformation implements Task {
                         request -> request.relaxedHTTPSValidation()
                                 .header(CONTENT_TYPE, APPLICATION_JSON)
                                 .header(ACCEPT,APPLICATION_JSON)
+                                .header(X_API_KEY,REQRES_FREE_V1)
                                 .body(RequestBody.updateUserInformation(userData))
                 )
         );
